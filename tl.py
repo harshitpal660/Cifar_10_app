@@ -10,19 +10,16 @@ import tensorflow as tf
 #   model=model
 #   return model
 
-st.title("Image Classifier - 10 Categories")
-img=cv2.imread("cifar.jpg")
-cv2_imshow(img)
-st.sidebar.image(img)
-upload=st.sidebar.file_uploader(label="Upload  the Image")
+st.title("Image Classifier - 1000 Categories!")
+upload = st.sidebar.file_uploader(label='Upload the Image')
 if upload is not None:
-  file_bytes=np.asarray(bytearray(upload.read()),dtype=np.uint8)
-  opencv_image=cv2.imdecode(file_bytes,1)
-  opencv_image=cv2.cvtColor(opencv_image,cv2.COLOR_BGR2RGB)
-  st.image(upload,caption="Uploaded Image",width=300)
-  model=tf.keras.models.load_model("/content/drive/MyDrive/smartknower/MajorProject<Harshit PAl>/cifar.hdf5")
-  # model=load_model()
-  if st.button("Predict"):
+  file_bytes = np.asarray(bytearray(upload.read()), dtype=np.uint8)
+  opencv_image = cv2.imdecode(file_bytes, 1)
+  opencv_image = cv2.cvtColor(opencv_image,cv2.COLOR_BGR2RGB)
+  img = Image.open(upload)
+  st.image(img,caption='Uploaded Image',width=300)
+  model = tf.keras.models.load_model("/content/drive/MyDrive/smartknower/MajorProject<Harshit PAl>/cifar.hdf5")
+ if st.button("Predict"):
     st.write("Result")
     x=cv2.resize(opencv_image,(32,32))
     x=np.expand_dims(x,axis=0)
