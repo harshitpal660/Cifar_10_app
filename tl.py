@@ -19,7 +19,7 @@ if upload is not None:
   img = Image.open(upload)
   st.image(img,caption='Uploaded Image',width=300)
   model = tf.keras.models.load_model("/content/drive/MyDrive/smartknower/MajorProject<Harshit PAl>/cifar.hdf5")
- if st.button("Predict"):
+  if st.button("Predict"):
     st.write("Result")
     x=cv2.resize(opencv_image,(32,32))
     x=np.expand_dims(x,axis=0)
