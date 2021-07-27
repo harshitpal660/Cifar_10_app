@@ -84,3 +84,6 @@ confusion_matrix(y_test,y_pred,)
 
 from sklearn.metrics import accuracy_score,confusion_matrix
 accuracy_score(y_test,y_pred)
+
+
+model.save('Cifar.hdf5')
