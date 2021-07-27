@@ -18,7 +18,10 @@ if upload is not None:
   opencv_image = cv2.cvtColor(opencv_image,cv2.COLOR_BGR2RGB)
   img = Image.open(upload)
   st.image(img,caption='Uploaded Image',width=300)
-  model = tf.keras.models.load_model("/content/drive/MyDrive/smartknower/MajorProject<Harshit PAl>/cifar.hdf5")
+  # Model saved with Keras model.save()
+  MODEL_PATH ='Cifar.hdf5'
+  # Load your trained model
+  model = load_model(MODEL_PATH)
   if st.button("Predict"):
     st.write("Result")
     x=cv2.resize(opencv_image,(32,32))
