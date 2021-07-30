@@ -20,9 +20,8 @@ if upload is not None:
   img = Image.open(upload)
   st.image(img,caption='Uploaded Image',width=300)
   # Model saved with Keras model.save()
-  MODEL_PATH ='Cifar.hdf5'
   # Load your trained model
-  model = load_model(MODEL_PATH)
+  model = load_model('Cifar.hdf5')
   if st.button("Predict"):
     st.write("Result")
     x=cv2.resize(opencv_image,(32,32))
